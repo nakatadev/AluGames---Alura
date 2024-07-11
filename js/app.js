@@ -1,33 +1,18 @@
+function alterarStatus(id) {
+    let gameElement = document.getElementById(`game-${id}`);
+    let imagem = gameElement.querySelector('.dashboard__item__img');
+    let botao = gameElement.querySelector('.dashboard__item__button');
 
-function alterandoStatus(x){
-    let botao = document.getElementById('botaoInteração');
-    if (botao.classList.contains('dashboard__item__button')){
-        botao.classList.remove('dashboard__item__button');
-        botao.classList.add('dashboard__item__button--return');
-        botao.innerHTML = 'Devolver';
-    }
-    else {
+    if (imagem.classList.contains('dashboard__item__img--rented')){
+        imagem.classList.remove('dashboard__item__img--rented');
         botao.classList.remove('dashboard__item__button--return');
         botao.classList.add('dashboard__item__button');
-        botao.innerHTML = 'Alugar';
+        botao.textContent = 'Alugar';
     }
-    break;
-}
-
-function alterarStatus (x){
-    switch (x){
-        case 1:
-            alterandoStatus(1);
-            break;
-        case 2:
-            alterandoStatus(2);
-            break;
-        case 3:
-            alterandoStatus(3);
-            break;
+    else {
+        imagem.classList.add('dashboard__item__img--rented');
+        botao.textContent = 'Devolver';
+        botao.classList.add('dashboard__item__button--return');
     }
+
 }
-
-
-
-
